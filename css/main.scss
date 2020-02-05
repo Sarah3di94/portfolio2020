@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+$colors: (
+	"bg-color": #07342D,
+  "primary": #30D2BC,
+	"secondary": #DB739F,
+  "accent": #042E29,
+  "paragraph": #C4C7C7
+);
+
+@function color($color-name){
+	@return map-get($colors, $color-name);
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: color(bg-color);
+  color:white;
+}
+
+header {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  margin: 2rem 1rem 2rem 2rem;
+
+  .logo {
+    text-decoration: none;
+    color: white;
+  }
+  
+  nav ul{
+    list-style-type: none;
+    display: flex;
+    flex-flow: row;
+
+    li {
+      margin: 0 2rem;
+
+      a {
+        text-decoration: none;
+        color: white;
+      }
+
+      button {
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+    }
+
+  }
+
+
+}
+
+main {
+  margin: 5rem 6rem;
+  display: flex;
+  flex-flow: column;
+  justify-content: left;
+  align-items: left;
+
+  .social-icons ul{
+    display: flex;
+    flex-flow: row;
+    list-style-type: none;
+
+    li {
+      margin: 2rem 2rem 0 0;
+    }
+  }
+
+}
+
