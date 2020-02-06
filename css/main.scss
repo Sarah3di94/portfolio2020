@@ -3,9 +3,10 @@
 $colors: (
 	"bg-color": #07342D,
   "primary": #30D2BC,
-	"secondary": #DB739F,
+  "secondary": #DB739F,
+  "secondary-hover": #b96085,
   "accent": #042E29,
-  "paragraph": #C4C7C7
+  "paragraph": #828282
 );
 
 @function color($color-name){
@@ -26,56 +27,118 @@ body {
   color:white;
 }
 
-header {
-  display: flex;
-  flex-flow: row;
-  justify-content: space-between;
-  margin: 2rem 1rem 2rem 2rem;
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 100%;
 
-  .logo {
-    text-decoration: none;
-    color: white;
-  }
-  
-  nav ul{
-    list-style-type: none;
+  header {
     display: flex;
     flex-flow: row;
+    justify-content: space-between;
+    margin: 2rem 1rem 2rem 2rem;
+  
+    .logo {
+      text-decoration: none;
+      color: white;
+    }
+    
+    nav ul{
+      list-style-type: none;
+      display: flex;
+      flex-flow: row;
+  
+      li {
+        margin: 0 2rem;
+        letter-spacing: 1px;
 
-    li {
-      margin: 0 2rem;
+        :hover {
+          color: color(secondary);
+        }
+  
+        a {
+          text-decoration: none;
+          color: color(paragraph);
+          transition: .2s;
+          outline: none;
+        }
 
-      a {
-        text-decoration: none;
-        color: white;
-      }
+        .contact-btn {
+          text-transform: uppercase;
+          font-weight: 700;
+          padding: .5rem .7rem;
+          font-size: .8rem;
+          color: color(secondary);
+          background-color: color(bg-color);
+          border: 1px solid color(secondary);
+          box-shadow: 0px 0px 0, 0px 0px 0, 0px 0px 0, 0px 0px 0, -3px 3px 0 #db739f7a;
+          transition: .1s;
+          outline: none;
+          &:hover{
+            background-color: color(secondary);
+            color: white;
+            box-shadow: 0px 0px 0, 0px 0px 0, 0px 0px 0, 0px 0px 0, -3px 3px 0 #db739f8a;
+          }
+          
+           &:active{
+             box-shadow:0 0 0 0;
+          }
+        }
 
-      button {
-        text-transform: uppercase;
-        font-weight: 700;
+       
+       
+    }
+  
+  }
+}
+}
+
+
+
+main {
+  max-width: 100rem;
+  min-height: 100vh;
+  padding: 7rem 5rem 0 12rem;
+  margin: 6rem auto 0 auto;
+
+  .header {
+    height: 100vh;
+  }
+
+  .header__content {
+    font-size: 3.5rem;
+    
+    h1 {
+      line-height: 5.5rem;
+      font-weight: 300;
+      color: color(paragraph);
+      span {
+        color: color(primary);
+        font-weight: 400;
+        text-shadow: 1px 4px 0 rgba(48, 210, 188, 0.18);
       }
 
     }
-
   }
 
-
-}
-
-main {
-  margin: 5rem 6rem;
-  display: flex;
-  flex-flow: column;
-  justify-content: left;
-  align-items: left;
-
-  .social-icons ul{
+  .header__social-icons ul{
     display: flex;
     flex-flow: row;
     list-style-type: none;
 
     li {
       margin: 2rem 2rem 0 0;
+      svg {
+        width: 2rem;
+        fill: color(secondary);
+        transition: .2s;
+      
+      }
+      :hover {
+        fill: color(secondary-hover);
+      }
     }
   }
 
