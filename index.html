@@ -10,20 +10,32 @@
 <body>
   
   <div class="navbar">
-    <header>  
-      <a class="logo" href="/" title="Go to home page">
-        <img src="logo.png" alt="Site logo">
-      </a>
-      <nav>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about-me">About Me</a></li>
-          <li><a href="#">Projects</a></li>
-          <li><a href="#">Resume</a></li>
-          <li><a href="mailto:sarah.zohour.adi@gmail.com" target="_blank"></a><button class="contact-btn">Contact</button></a></li>
-        </ul>
-      </nav>
-  </header>
+    <header>
+      <div class="nav-wrapper">
+        <div class="logo-container">
+          <a class="logo" href="/" title="Go to home page">
+            <img src="logo.png" alt="Site logo">
+          </a>
+        </div>
+        <nav>
+          <input class="hidden" type="checkbox" id="menuToggle">
+          <label class="menu-btn" for="menuToggle">
+              <div class="menu"></div>
+              <div class="menu"></div>
+              <div class="menu"></div>
+          </label>
+          <div class="nav-container">
+            <ul class="nav-list">
+              <li><a href="#" target="_blank">Home</a></li>
+              <li><a href="#" target="_blank">About Me</a></li>
+              <li><a href="#" target="_blank">Projects</a></li>
+              <li><a href="#" target="_blank">Resume</a></li>
+              <li><a href="mailto:sarah.zohour.adi@gmail.com" target="_blank"><button class="contact-btn">Contact</button></a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
 </div>
 
   <main>
