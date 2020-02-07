@@ -59,6 +59,13 @@ body {
   letter-spacing: 1px;
 }
 
+@media (min-width: 2000px) {
+  .navbar header nav ul li {
+    font-size: 1.7rem;
+    margin: 1rem 3rem;
+  }
+}
+
 .navbar header nav ul li :hover {
   color: #DB739F;
 }
@@ -98,6 +105,13 @@ body {
           box-shadow: 0 0 0 0;
 }
 
+@media (min-width: 2000px) {
+  .navbar header nav ul li .contact-btn {
+    font-size: 1.7rem;
+    padding: .7rem 2rem;
+  }
+}
+
 main {
   max-width: 100rem;
   min-height: 100vh;
@@ -105,14 +119,44 @@ main {
   margin: 2rem auto 0 auto;
 }
 
+@media (min-width: 2000px) {
+  main {
+    max-width: 90vw;
+  }
+}
+
 @media (min-width: 690px) {
-  main main {
-    max-width: 100vw;
+  main {
+    padding: 15% 1rem 0 10%;
+  }
+}
+
+@media (max-width: 689px) {
+  main {
+    padding: 35% 1.5rem 20% 1.5rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main {
+    padding: 9% 5rem 0 12rem;
   }
 }
 
 main .header {
   height: 100vh;
+}
+
+@media (min-width: 690px) {
+  main .header {
+    height: auto;
+  }
+}
+
+@media (max-width: 689px) {
+  main .header {
+    height: auto;
+  }
 }
 
 main .header__content {
@@ -131,6 +175,26 @@ main .header__content h1 span {
   text-shadow: 1px 4px 0 rgba(48, 210, 188, 0.18);
 }
 
+@media (min-width: 690px) {
+  main .header__content h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 689px) {
+  main .header__content h1 {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .header__content h1 {
+    font-size: 7rem;
+    line-height: 8rem;
+  }
+}
+
 main .header__social-icons ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -146,11 +210,29 @@ main .header__social-icons ul li {
   margin: 2rem 2rem 0 0;
 }
 
+@media (min-width: 2000px) {
+  main .header__social-icons ul li {
+    margin: 3rem 4rem 0 0;
+  }
+}
+
 main .header__social-icons ul li svg {
   width: 2rem;
   fill: #DB739F;
   -webkit-transition: .2s;
   transition: .2s;
+}
+
+@media (max-width: 689px) {
+  main .header__social-icons ul li svg {
+    width: 1.5rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .header__social-icons ul li svg {
+    width: 3.5rem;
+  }
 }
 
 main .header__social-icons ul li :hover {
@@ -160,6 +242,20 @@ main .header__social-icons ul li :hover {
 main .about-me,
 main .contact {
   max-width: 800px;
+}
+
+@media (min-width: 690px) {
+  main .about-me,
+  main .contact {
+    max-width: 80vw;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .about-me,
+  main .contact {
+    max-width: 50vw;
+  }
 }
 
 main .about-me h2,
@@ -177,9 +273,46 @@ main .contact h2 span {
   text-shadow: 1px 4px 0 rgba(48, 210, 188, 0.18);
 }
 
+@media (min-width: 690px) {
+  main .about-me h2,
+  main .contact h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 689px) {
+  main .about-me h2,
+  main .contact h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .about-me h2,
+  main .contact h2 {
+    font-size: 5rem;
+  }
+}
+
 main .about-me p,
 main .contact p {
   color: #828282;
+}
+
+@media (min-width: 690px) {
+  main .about-me p,
+  main .contact p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .about-me p,
+  main .contact p {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
 }
 
 main .about-me .about-me__skills-list,
@@ -199,10 +332,32 @@ main .contact .about-me__skills-list ul {
   margin: 1rem 5rem 0 0;
 }
 
+@media (min-width: 2000px) {
+  main .about-me .about-me__skills-list ul,
+  main .contact .about-me__skills-list ul {
+    margin: 2.5rem 5rem 0 0;
+  }
+}
+
 main .about-me .about-me__skills-list ul li,
 main .contact .about-me__skills-list ul li {
   color: #828282;
   font-size: .9rem;
+}
+
+@media (min-width: 690px) {
+  main .about-me .about-me__skills-list ul li,
+  main .contact .about-me__skills-list ul li {
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .about-me .about-me__skills-list ul li,
+  main .contact .about-me__skills-list ul li {
+    font-size: 1.8rem;
+    line-height: 3rem;
+  }
 }
 
 main .about-me .about-me__skills-list ul li:before,
@@ -214,8 +369,35 @@ main .contact .about-me__skills-list ul li:before {
   font-size: 1.2rem;
 }
 
+@media (min-width: 690px) {
+  main .about-me .about-me__skills-list ul li:before,
+  main .contact .about-me__skills-list ul li:before {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .about-me .about-me__skills-list ul li:before,
+  main .contact .about-me__skills-list ul li:before {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+
 main .projects {
   max-width: 800px;
+}
+
+@media (min-width: 690px) {
+  main .projects {
+    max-width: 80vw;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .projects {
+    max-width: 50vw;
+  }
 }
 
 main .projects h2 {
@@ -231,15 +413,40 @@ main .projects h2 span {
   text-shadow: 1px 4px 0 rgba(48, 210, 188, 0.18);
 }
 
+@media (min-width: 690px) {
+  main .projects h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 689px) {
+  main .projects h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .projects h2 {
+    font-size: 5rem;
+  }
+}
+
 main .projects .grid {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 20px;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
+}
+
+@media (min-width: 2000px) {
+  main .projects .grid {
+    -ms-grid-columns: (minmax(450px, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  }
 }
 
 main .projects .grid img {
@@ -266,10 +473,28 @@ main .projects .hover-text-container {
   transition: opacity 0.2s linear;
 }
 
+@media (min-width: 690px) {
+  main .projects .hover-text-container {
+    height: 100%;
+  }
+}
+
 main .projects .hover-text-container h3 {
   color: #30D2BC;
   font-size: .8rem;
   font-weight: 300;
+}
+
+@media (min-width: 690px) {
+  main .projects .hover-text-container h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .projects .hover-text-container h3 {
+    margin-top: 1.1rem;
+  }
 }
 
 main .projects .hover-text-container h4 {
@@ -278,11 +503,23 @@ main .projects .hover-text-container h4 {
   text-transform: uppercase;
 }
 
+@media (min-width: 690px) {
+  main .projects .hover-text-container h4 {
+    font-size: 2.5rem;
+  }
+}
+
 main .projects .hover-text-container p {
   margin-top: .5rem;
   color: #828282;
   font-size: .8rem;
   font-weight: 300;
+}
+
+@media (min-width: 690px) {
+  main .projects .hover-text-container p {
+    font-size: 1.4rem;
+  }
 }
 
 main .projects .hover-text-container:hover {
@@ -296,6 +533,27 @@ main .projects .hover-text-container-card {
   height: 18.2rem;
   background: rgba(7, 53, 46, 0.96);
   font-size: 2rem;
+}
+
+@media (min-width: 690px) {
+  main .projects .hover-text-container-card {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 0 3rem;
+    margin: 0;
+    height: 100%;
+  }
 }
 
 main .projects .hover-text-container-card .projects-social-icons {
@@ -337,6 +595,12 @@ main .projects .hover-text-container-card .projects-social-icons ul li svg {
   transition: .2s;
 }
 
+@media (min-width: 690px) {
+  main .projects .hover-text-container-card .projects-social-icons ul li svg {
+    width: 2rem;
+  }
+}
+
 main .projects .hover-text-container-card .projects-social-icons ul li :hover {
   fill: #b96085;
 }
@@ -355,7 +619,7 @@ main .projects .view-more-btn {
   transition: .1s;
   outline: none;
   position: relative;
-  left: 43%;
+  left: 0;
   top: 2rem;
 }
 
@@ -371,8 +635,47 @@ main .projects .view-more-btn:active {
           box-shadow: 0 0 0 0;
 }
 
+@media (min-width: 690px) {
+  main .projects .view-more-btn {
+    padding: 1.1rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .projects .view-more-btn {
+    padding: 1.1rem 2rem;
+    font-size: 1.6rem;
+  }
+}
+
 main .contact {
   margin-bottom: 20%;
+}
+
+@media (max-width: 689px) {
+  main .contact {
+    margin-top: 30%;
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 690px) {
+  main .contact h2 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 689px) {
+  main .contact h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .contact h2 {
+    font-size: 4rem;
+  }
 }
 
 main .contact .contact-btn {
@@ -391,6 +694,12 @@ main .contact .contact-btn {
   outline: none;
 }
 
+@media (min-width: 2000px) {
+  main .contact .contact-btn {
+    margin-top: 3rem;
+  }
+}
+
 main .contact .contact-btn:hover {
   background-color: #DB739F;
   color: white;
@@ -401,6 +710,20 @@ main .contact .contact-btn:hover {
 main .contact .contact-btn:active {
   -webkit-box-shadow: 0 0 0 0;
           box-shadow: 0 0 0 0;
+}
+
+@media (min-width: 690px) {
+  main .contact .contact-btn {
+    padding: 1.1rem 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  main .contact .contact-btn {
+    padding: 1.1rem 2rem;
+    font-size: 1.6rem;
+  }
 }
 
 footer {
@@ -420,9 +743,32 @@ footer {
   background-color: #042E29;
 }
 
+@media (max-width: 689px) {
+  footer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: column;
+            flex-flow: column;
+  }
+}
+
 footer p {
   font-size: 1rem;
   margin-left: 2.2rem;
+}
+
+@media (max-width: 689px) {
+  footer p {
+    margin-left: 0;
+    margin: 1.5rem 0 1rem 0;
+  }
+}
+
+@media (min-width: 2000px) {
+  footer p {
+    font-size: 2rem;
+    margin: 1.5rem 0 1.5rem 2.2rem;
+  }
 }
 
 footer ul {
@@ -440,6 +786,18 @@ footer ul {
   margin-right: 2.2rem;
 }
 
+@media (max-width: 689px) {
+  footer ul {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 2000px) {
+  footer ul {
+    margin: 1.5rem 2.2rem 1.5rem 0;
+  }
+}
+
 footer ul li {
   margin: 1rem 1rem;
 }
@@ -449,6 +807,13 @@ footer ul li svg {
   fill: white;
   -webkit-transition: .2s;
   transition: .2s;
+}
+
+@media (min-width: 2000px) {
+  footer ul li svg {
+    width: 3rem;
+    margin: 1rem 0 1rem 2rem;
+  }
 }
 
 footer ul li :hover {
