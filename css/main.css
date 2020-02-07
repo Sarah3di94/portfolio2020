@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 * {
   margin: 0;
@@ -16,6 +17,7 @@ body {
 
 .navbar {
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   margin: auto;
@@ -104,7 +106,7 @@ main {
 }
 
 main .header {
-  height: 100vh;
+  height: 90vh;
 }
 
 main .header__content {
@@ -146,6 +148,183 @@ main .header__social-icons ul li svg {
 }
 
 main .header__social-icons ul li :hover {
+  fill: #b96085;
+}
+
+main .about-me {
+  max-width: 800px;
+}
+
+main .about-me h2 {
+  margin: 0 0 2rem 0;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #828282;
+}
+
+main .about-me h2 span {
+  color: #30D2BC;
+  font-weight: 400;
+  text-shadow: 1px 4px 0 rgba(48, 210, 188, 0.18);
+}
+
+main .about-me p {
+  color: #828282;
+}
+
+main .about-me .about-me__skills-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+}
+
+main .about-me .about-me__skills-list ul {
+  list-style-type: none;
+  margin: 1rem 5rem 0 0;
+}
+
+main .about-me .about-me__skills-list ul li {
+  color: #828282;
+  font-size: .9rem;
+}
+
+main .about-me .about-me__skills-list ul li:before {
+  content: "▹";
+  position: relative;
+  margin-right: 1rem;
+  color: #DB739F;
+  font-size: 1.2rem;
+}
+
+main .projects {
+  max-width: 800px;
+  max-height: 100vh;
+}
+
+main .projects h2 {
+  margin: 20rem 0 2rem 0;
+  font-size: 3.5rem;
+  font-weight: 300;
+  color: #828282;
+}
+
+main .projects h2 span {
+  color: #30D2BC;
+  font-weight: 400;
+  text-shadow: 1px 4px 0 rgba(48, 210, 188, 0.18);
+}
+
+main .projects .grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-gap: 20px;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+}
+
+main .projects .grid img {
+  max-width: 100%;
+}
+
+main .projects .hover-image-text-container {
+  position: relative;
+  display: inline-block;
+  width: auto;
+  height: auto;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+main .projects .hover-text-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  margin: 0 auto;
+  opacity: 0;
+  cursor: default;
+  -webkit-transition: opacity 0.2s linear;
+  transition: opacity 0.2s linear;
+}
+
+main .projects .hover-text-container h3 {
+  color: #30D2BC;
+  font-size: .8rem;
+  font-weight: 300;
+}
+
+main .projects .hover-text-container h4 {
+  font-weight: 500;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+
+main .projects .hover-text-container p {
+  margin-top: .5rem;
+  color: #828282;
+  font-size: .8rem;
+  font-weight: 300;
+}
+
+main .projects .hover-text-container:hover {
+  opacity: 1;
+  border: 2px solid #30d3bc;
+}
+
+main .projects .hover-text-container-card {
+  text-align: center;
+  padding: 2.5rem 2rem 0 2rem;
+  height: 18.2rem;
+  background: rgba(7, 53, 46, 0.96);
+  font-size: 2rem;
+}
+
+main .projects .hover-text-container-card .projects-social-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+
+main .projects .hover-text-container-card .projects-social-icons ul {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+}
+
+main .projects .hover-text-container-card .projects-social-icons ul li {
+  margin: .7rem 0 0 0;
+}
+
+main .projects .hover-text-container-card .projects-social-icons ul li svg {
+  width: 1.5rem;
+  margin: 0 .5rem;
+  fill: #DB739F;
+  -webkit-transition: .2s;
+  transition: .2s;
+}
+
+main .projects .hover-text-container-card .projects-social-icons ul li :hover {
   fill: #b96085;
 }
 /*# sourceMappingURL=main.css.map */
