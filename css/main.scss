@@ -9,14 +9,9 @@ $colors: (
   "paragraph": #828282
 );
 
-$desktop: 690px;
-$mobile: 689px;
-$tablet: 800px;
-$largeScreens: 2000px;
-
 @function color($color-name){
 	@return map-get($colors, $color-name);
-}
+};
 
 @mixin spanTextShadowEffect {
   span {
@@ -42,34 +37,25 @@ $largeScreens: 2000px;
       color: white;
       box-shadow: 0px 0px 0, 0px 0px 0, 0px 0px 0, 0px 0px 0, -3px 3px 0 #db739f8a;
     }
-    
-      &:active{
+    &:active{
         box-shadow:0 0 0 0;
     }
 };
 
-@mixin largeScreens { 
-  @media (min-width: #{$largeScreens}) { 
-    @content
-  }
+@mixin mobile {
+  @media (max-width: 599px) { @content; }
 };
 
-@mixin desktop { 
-  @media (min-width: #{$desktop}) { 
-    @content
-  }
+@mixin tablet {
+  @media (min-width: 600px) { @content; }
 };
 
-@mixin tablet { 
-  @media (max-width: #{$tablet}) { 
-    @content
-  }
+@mixin desktop {
+  @media (min-width: 1200px) { @content; }
 };
 
-@mixin mobile { 
-  @media (max-width: #{$mobile}) { 
-    @content
-  }
+@mixin large-desktop {
+  @media (min-width: 1800px) { @content; }
 };
 
 * {
@@ -85,176 +71,137 @@ body {
   color:white;
 }
 
-.navbar {
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  margin: auto;
-  width: 100%;
 
-  header {
-    display: flex;
-    flex-flow: row;
-    justify-content: space-between;
-    margin: 2rem 1rem 2rem 2rem;
-  
-    .logo {
-      text-decoration: none;
-      color: white;
-    }
-    
-    nav ul{
-      list-style-type: none;
-      display: flex;
-      flex-flow: row;
-  
-      li {
-        margin: 0 2rem;
-        letter-spacing: 1px;
-        @include largeScreens{
-          font-size: 1.7rem;
-          margin: 1rem 3rem;
-        };
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2rem 1rem 2rem 2rem;
 
-        :hover {
-          color: color(secondary);
-        }
-  
-        a {
-          text-decoration: none;
-          color: color(paragraph);
-          transition: .2s;
-          outline: none;
-        }
-
-        .contact-btn {
-          @include button3dEffect;
-          @include largeScreens{
-            font-size: 1.7rem;
-            padding: .7rem 2rem;
-          };
-        }
-       
-      }
-  
-    }
+  .logo {
+    text-decoration: none;
+    color: white;
   }
-}
 
-.nav-wrapper {
-	display: flex;
-	position: relative;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	align-items: center;
-	justify-content: space-between;
-	margin: auto;
-	width: 90%;
-	height: 80px;
-	z-index: 2;
-}
-
-.logo {
-	height: 60px;
-}
-
-.hidden {
-	display: none;
-}
-
-@include tablet {
-  .nav-container {
-    position: fixed;
-    display: none;
-    overflow-y: auto;
-    z-index: -1;
+  .menu-container {
+    position: absolute;
     top: 0;
     right: 0;
-    width: 280px;
+    z-index: 10;
     height: 100%;
-    background-color: color(accent);
-    box-shadow: -1px 0 2px color(accent);
-    .nav-list {
-      flex-flow: column;
-      align-items: flex-end;
-      margin-top: 50%;
-      width: 100%;
-      li {
-        margin-bottom: 1rem;
-        a {
-          font-size: 1.5rem;
-          .contact-btn {
-            font-size: 1rem;
-            margin-top: 1rem;
-            padding: .5rem 1.5rem;
-          }
-        }
-      }
+    width: 10rem;
+    background: transparent;
+    opacity: 0;
+    transition: background .2s ease-out, opacity .2s ease-out;
+    
+    nav {
       
+      ul{
+        list-style-type: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin-top: 6rem;
+        @include desktop{
+          flex-direction: row;
+        }
+    
+        li {
+          margin: .5rem 2rem;
+          letter-spacing: 1px;
+          @include largeScreens{
+            font-size: 1.7rem;
+            margin: 1rem 3rem;
+          };
+    
+          :hover {
+            color: color(secondary);
+          }
+    
+          a {
+            text-decoration: none;
+            color: color(paragraph);
+            transition: .2s;
+            outline: none;
+          }
+    
+          .contact-btn {
+            @include button3dEffect;
+            @include largeScreens{
+              font-size: 1.7rem;
+              padding: .7rem 2rem;
+            };
+          }
+          
+        }
+    
+      }
+  
     }
   }
 
-	.menu-btn {
-		position: relative;
-		display: block;
-		margin: 0;
-		width: 20px;
-		height: 15px;
-		cursor: pointer;
-		z-index: 2;
-    left: 1rem;
-		border-radius: 10px;
-	}
+  .menu-btn {
+    display: none;
+    &:checked ~ .menu-container {
+      background: color(accent);
+      opacity: 1;
+    }
+    &:checked ~ .menu-icon .nav-icon {
+      background: transparent;
 
-	.menu-btn .menu {
-		display: block;
-		width: 100%;
-		height: 2px;
-		background: color(paragraph);
-	}
+      &:before {
+        transform: rotate(-45deg);
+        top: 0;
+      }
+      &:after {
+        transform: rotate(45deg);
+        top: 0;
+      }
 
-	.menu-btn .menu:nth-child(2) {
-		margin-top: 4px;
-		opacity: 1;
-	}
+    }
+  }
 
-	.menu-btn .menu:nth-child(3) {
-		margin-top: 4px;
-	}
+  .menu-icon {
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
 
-	#menuToggle:checked + .menu-btn .menu {
-		transition: transform 0.2s ease;
-	}
+    .nav-icon {
+      background: color(paragraph);
+      display: block;
+      height: 2px;
+      width: 18px;
+      position: relative;
+      transition: background .2s ease-out;
+      z-index: 100;
+      &:before {
+        content: '';
+        background: color(paragraph);
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 5px;
+        transition: all .2s ease-out;
+      }
+      &:after {
+        content: '';
+        background: color(paragraph);
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: -5px;
+        transition: all .2s ease-out;
+      }
+    }
 
-	#menuToggle:checked + .menu-btn .menu:nth-child(1) {
-		transform: translate3d(0, 6px, 0) rotate(45deg);
-	}
-
-	#menuToggle:checked + .menu-btn .menu:nth-child(2) {
-		transform: rotate(-45deg) translate3d(-5.71429px, -6px, 0);
-		opacity: 0;
-	}
-
-	#menuToggle:checked + .menu-btn .menu:nth-child(3) {
-		transform: translate3d(0, -6px, 0) rotate(-45deg);
-	}
-
-	#menuToggle:checked ~ .nav-container {
-		z-index: 1;
-		display: flex;
-		animation: menu-slide-left 0.5s ease-in-out;
-	}
-
-	@keyframes menu-slide-left {
-		0% {
-			transform: translateX(200px);
-		}
-		to {
-			transform: translateX(0);
-		}
-	}
+  }
+  
+  
 }
+
 
 main {
   max-width: 100rem;
@@ -309,7 +256,7 @@ main {
 
   .header__social-icons ul{
     display: flex;
-    flex-flow: row;
+    flex-direction: row;
     list-style-type: none;
 
     li {
@@ -377,7 +324,7 @@ main {
 
     .about-me__skills-list {
       display: flex;
-      flex-flow: row;
+      flex-direction: row;
       ul {
         list-style-type: none;
         margin: 1rem 5rem 0 0;
@@ -532,7 +479,7 @@ main {
       height: 18.2rem;
       @include desktop{
         display: flex;
-        flex-flow: column;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         padding: 0 3rem;        
@@ -550,12 +497,12 @@ main {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-flow: column;
+        flex-direction: column;
         
         ul {
           list-style-type: none;
           display: flex;
-          flex-flow: row;
+          flex-direction: row;
           li {
             margin: .7rem 0 0 0;
             svg {
@@ -632,9 +579,9 @@ main {
 
 footer {
   display: flex;
-  flex-flow: row;
+  flex-direction: row;
   @include mobile{
-    flex-flow: column;
+    flex-direction: column;
   };
   justify-content: space-between;
   align-items: center;
@@ -654,7 +601,7 @@ footer {
   }
   ul {
     display: flex;
-    flex-flow: row;
+    flex-direction: row;
     align-items: center;
     list-style-type: none;
     margin-right: 2.2rem;
