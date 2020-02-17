@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
 
 $colors: (
-	"bg-color": #07342D,
+	"bg-color": #082f29,
   "primary": #30D2BC,
   "secondary": #DB739F,
   "secondary-hover": #b96085,
-  "accent": #042E29,
-  "paragraph": #828282
+  "accent": #072b27,
+  "paragraph": #868585
 );
 
 @function color($color-name){
@@ -17,26 +17,28 @@ $colors: (
   span {
     color: color(primary);
     font-weight: 400;
-    text-shadow: 1px 4px 0 rgba(48, 210, 188, 0.18);
+    text-shadow: 2px 2px 10px rgba(48, 210, 188, 0.18);
+    // text-shadow: 1px 4px 0 rgba(48, 210, 188, 0.18);
+  
   }
 };
 
 @mixin button3dEffect {
-    text-transform: uppercase;
-    font-weight: 700;
+    // text-transform: uppercase;
+    font-weight: 500;
     padding: .5rem .9rem;
-    font-size: .8rem;
+    font-size: 1rem;
     color: color(secondary);
     background-color: color(bg-color);
     border: 1px solid color(secondary);
-    box-shadow: 0px 0px 0, 0px 0px 0, 0px 0px 0, 0px 0px 0, -3px 3px 0 #db739f7a;
+    // box-shadow: 0px 0px 0, 0px 0px 0, 0px 0px 0, 0px 0px 0, -3px 3px 0 #db739f7a;
     transition: .1s;
     outline: none;
     cursor: pointer;
     &:hover{
       background-color: color(secondary);
       color: white;
-      box-shadow: 0px 0px 0, 0px 0px 0, 0px 0px 0, 0px 0px 0, -3px 3px 0 #db739f8a;
+      // box-shadow: 0px 0px 0, 0px 0px 0, 0px 0px 0, 0px 0px 0, -3px 3px 0 #db739f8a;
     }
     &:active{
         box-shadow:0 0 0 0;
@@ -73,9 +75,6 @@ body {
 }
 
 .navbar-container {
-  position: fixed;
-  top: 0;
-  left: 0;
   margin: auto;
   width: 100%;
   z-index: 1000;
@@ -83,12 +82,13 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 1.5rem 2rem;
+    padding: 1.4rem 2rem 0 2rem;
   
     .logo {
       text-decoration: none;
       color: white;
       z-index: 1000;
+      width: 4rem;
     }
 
     .menu-btn {
@@ -159,17 +159,20 @@ body {
       right: 0;
       z-index: 10;
       height: 50vh;
-      width: 100vw;
+      width: 100%;
       background: transparent;
       box-shadow: 0px -1px 6px 0px #141716;
       opacity: 0;
       transition: background .2s ease-out, opacity .2s ease-out;
       @include desktop(){
-        position: sticky;
+        position: relative;
         opacity: 1;
         width: 100%;
         height: auto;
         box-shadow: none;
+      }
+      @include mobile(){
+        height: 100vh;
       }
       nav {
         
@@ -185,9 +188,10 @@ body {
           }
       
           li {
-            margin: .5rem 0 .5rem 5rem;
+            margin-right: 2rem;
             letter-spacing: 1px;
             font-size: 1rem;
+            font-weight: 400;
             @include tablet(){
               margin: 1rem 1.5rem 1rem 3.5rem;
             }
@@ -220,40 +224,37 @@ body {
 
 
 main {
-    width: 100%;
-    max-width: 1300px;
-    min-height: 100vh;
-    padding: 10rem 5rem;
-    box-sizing: border-box;
-  
+  max-width: 1800px;
+  min-height: 100vh;
+  padding: 15rem 5rem 5rem 10rem;
+  box-sizing: border-box;
+  @include mobile{
+    padding: 8rem 3rem;
+  };
+  @include tablet{
+    padding: 5rem 3rem;
+  };
+
   .header {
     height: 100vh;
-    @include desktop{
-      height: auto;
-    };
     @include mobile{
       height: auto;
+    };
+    @include tablet(){
+      height: 70vh;
     };
   }
 
   .header__content {
-    font-size: 3.5rem;
     
     h1 {
-      line-height: 5.5rem;
       font-weight: 300;
+      font-size: 4rem;
+      line-height: 130%;
       color: color(paragraph);
       @include spanTextShadowEffect();
-      @include desktop{
-        font-size: 4rem;
-      };
       @include mobile{
-        font-size: 2rem;
-        line-height: 3rem;
-      };
-      @include large-desktop{
-        font-size: 7rem;
-        line-height: 8rem;
+        font-size: 2.5rem;
       };
     }
   }
@@ -265,20 +266,13 @@ main {
 
     li {
       margin: 2rem 2rem 0 0;
-      @include large-desktop{
-        margin: 3rem 4rem 0 0;
-      };
       svg {
         width: 2rem;
         @include mobile{
           width: 1.5rem;
         };
-        @include large-desktop{
-          width: 3.5rem;
-        };
         fill: color(secondary);
         transition: .2s;
-      
       }
       :hover {
         fill: color(secondary-hover);
@@ -288,42 +282,25 @@ main {
 
   .about-me,
   .contact {
-    max-width: 800px;
-    @include desktop{
-      max-width: 80vw;
-    };
-    @include large-desktop(){
-      max-width: 50vw;
-    };
-    
-
     h2 {
-      margin: 20% 0 2rem 0;
       font-size: 3.5rem;
       font-weight: 300;
+      margin-bottom: 2rem;
       color: color(paragraph);
       @include spanTextShadowEffect();
       @include desktop{
         font-size: 3rem;
       };
       @include mobile{
-        font-size: 2rem;
-      };
-      @include large-desktop(){
-        font-size: 5rem;
+        font-size: 2.2rem;
+        margin-top: 10rem;
       };
     }
 
     p {
       color: color(paragraph);
-      @include desktop{
-        font-size: 1.2rem;
-        line-height: 2rem;
-      };
-      @include large-desktop(){
-        font-size: 2rem;
-        line-height: 3rem;
-      };
+      font-size: 1rem;
+      max-width: 800px;
     }
 
     .about-me__skills-list {
@@ -341,10 +318,6 @@ main {
           @include desktop{
             font-size: 1.1rem;
           };
-          @include large-desktop(){
-            font-size: 1.8rem;
-            line-height: 3rem;
-          };
           &:before {
             content: "▹";
             position: relative;
@@ -354,23 +327,20 @@ main {
             @include desktop{
               font-size: 1.4rem;
             };
-            @include large-desktop(){
-              font-size: 2rem;
-              line-height: 2.5rem;
-            };
           }
         }
-
-        
       }
-      
     }
   }
 
   .projects {
-
+    display: flex;
+    justify-content: flex-end;
+    @include tablet(){
+      justify-content: flex-start;
+    };
     h2 {
-      margin: 20% 0 2rem 0;
+      margin: 9rem 0 2rem 0;
       font-size: 3.5rem;
       font-weight: 300;
       color: color(paragraph);
@@ -379,21 +349,16 @@ main {
         font-size: 3rem;
       };
       @include mobile{
-        font-size: 2rem;
-      };
-      @include large-desktop(){
-        font-size: 5rem;
+        font-size: 2.2rem;
       };
     }
-
-   
 
     .projects-container:nth-child(even) {
       flex-direction: row;
       .details {
-        margin-left: 2rem;
+        margin: 0 2rem;
         @include tablet(){
-          margin-left: 0;
+          margin: 0;
         }
       }
     }
@@ -401,9 +366,9 @@ main {
     .projects-container:nth-child(odd) {
       flex-direction: row-reverse;
       .details {
-        margin-right: 2rem;
+        margin: 0 2rem;
         @include tablet(){
-          margin-right: 0;
+          margin: 0;
         }
       }
     }
@@ -414,21 +379,33 @@ main {
       justify-content: flex-start;
       align-items: center;
       flex-grow: 1;
-      max-width: 1500px;
-      margin-bottom: 2rem; 
+      max-width: 1000px;
+      box-shadow: 0px -1px 4px 0px #1a2521;
+      margin: 2rem 0 0 auto;
+      background-color: #032926;
       @include tablet(){
         flex-direction: column;
         align-items: flex-start;
+        max-width: 500px;
       }
       img {
-        max-width: 500px;
-        margin-bottom: 2rem;
+        max-width: 100%;
+        @include tablet(){
+          margin-bottom: 2rem;
+        }
       }
     .details {
+      @include tablet(){
+        text-align: center;
+        padding: 0 2rem;
+      }
       h3 {
         font-size: .9rem;
         color: color(primary);
         font-weight: 300;
+        @include mobile{
+          font-size: .8rem;
+        };
       }
 
       h4 {
@@ -436,90 +413,61 @@ main {
         font-size: 2rem;
         text-transform: uppercase;
         @include mobile{
-          font-size: 1.7rem;
+          font-size: 1.5rem;
         };
       }
 
       p {
         margin-top: .5rem;
         color: color(paragraph);
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 300;
-        @include mobile{
-          font-size: 1.2rem;
-        };
-        
-       
       }
     }
     .projects-social-icons{
       display: flex;
+      @include tablet(){
+        justify-content: center;
+        margin-bottom: 1.5rem;
+      }
       svg {
-      width: 1.5rem;
-      padding: 1.5rem 2rem 0 0;
-      @include large-desktop{
-        width: 2rem;
-      };
-      fill: white;
-      transition: .2s;
+        width: 1.5rem;
+        padding: 1.5rem 2rem 0 0;
+        @include tablet(){
+          padding: 1rem 1rem 0 1rem;
+        }
+        fill: white;
+        transition: .2s;
+        }
+        :hover {
+          fill: color(secondary);
+        }
       }
-      :hover {
-        fill: cwhite;
-      }
-    }
     }
     .view-more-btn {
+      margin-top: 4rem;
       @include button3dEffect;
-      position: relative;
-      left: 0;
-      top: 2rem;
-      @include desktop{
-        padding: 1.1rem 2rem; 
-        font-size: 1.2rem;  
-      };
-      @include large-desktop{
-        padding: 1.1rem 2rem; 
-        font-size: 1.6rem;  
-      };
     }
-
   }
 
   .contact {
-    margin-bottom: 20%;
-    @include mobile{
-      margin-top: 30%;
-      margin-bottom: 0;
-    };
+    margin-top: 10rem;
     h2 {
       @include desktop{
         font-size: 3rem;
       };
       @include mobile{
-        font-size: 2rem;
-      };
-      @include large-desktop{
-        font-size: 4rem;  
+        font-size: 2.2rem;
       };
     }
     .contact-btn {
       margin-top: 1.5rem;
       @include large-desktop{
         margin-top: 3rem;
- 
       };
       @include button3dEffect();
-      @include desktop{
-        padding: 1.1rem 2rem; 
-        font-size: 1.2rem;  
-      };
-      @include large-desktop{
-        padding: 1.1rem 2rem; 
-        font-size: 1.6rem;  
-      };
     }
   }
-
 }
 
 footer {
@@ -527,6 +475,7 @@ footer {
   flex-direction: row;
   @include mobile{
     flex-direction: column;
+    padding-top: 1rem;
   };
   justify-content: space-between;
   align-items: center;
@@ -534,38 +483,22 @@ footer {
   p {
     font-size: 1rem;
     margin-left: 2.2rem;
-    @include mobile{
-      margin-left: 0;
-      margin: 1.5rem 0 1rem 0;
-    };
-    @include large-desktop{
-      font-size: 2rem;
-      margin: 1.5rem 0 1.5rem 2.2rem;
-    };
-    
+    color: color(paragraph);
   }
   ul {
     display: flex;
     flex-direction: row;
     align-items: center;
     list-style-type: none;
-    margin-right: 2.2rem;
+    margin: 1rem 2.2rem;
     @include mobile{
       margin-right: 0;
     };
-    @include large-desktop{
-      margin: 1.5rem 2.2rem 1.5rem 0;
-    };
-    
     li {
-      margin: 1rem 1rem;
+      margin: 0 1rem;
       svg {
         width: 1.5rem;
-        @include large-desktop{
-          width: 3rem;
-          margin: 1rem 0 1rem 2rem;
-        };
-        fill: white;
+        fill: color(paragraph);
         transition: .2s;
       }
       :hover {
