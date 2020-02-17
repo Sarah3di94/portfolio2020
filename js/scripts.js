@@ -23,14 +23,14 @@ headerSpan.forEach((spanElement) => {
 
 // navbar color change on scroll
 window.onscroll = () => {
-  const navbar = document.querySelector('.navbar');
-  const header = document.querySelector('.navbar header');
+  const navbar = document.querySelector('.navbar-container');
+  const header = document.querySelector('nav');
   
   if(this.scrollY <= 10){
     navbar.style.backgroundColor = '#07342D'; 
-    header.style.margin = "2rem 1rem 2rem 2rem";
+    header.style.margin = "0 1rem 0 2rem";
   } else {
     navbar.style.backgroundColor = '#042E29';
-    header.style.margin = "1rem 1rem 1rem 2rem";
+    header.style.margin = "0 1rem 0 2rem";
   } 
 };
